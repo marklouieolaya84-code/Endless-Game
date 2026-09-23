@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Dungeon Survivor — Enhanced</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<div id="ui">
+  <button id="pauseBtn" class="glass-btn">Ⅱ</button>
+
+  <div id="topLeft">
+    <div class="stat-row"><span class="stat-icon">❤</span><div id="hpBar"><div id="hpFill"></div><span id="hpText">150 / 150</span></div></div>
+    <div class="resource-row">
+      <div id="coins">🪙 0</div>
+      <div id="souls">👻 0</div>
+    </div>
+  </div>
+
+  <div id="topCenter">
+    <div id="wave">WAVE 1</div>
+    <div id="time">0:00</div>
+  </div>
+
+  <div id="topRight">
+    <div id="score">SCORE 0</div>
+    <div id="kills">☠ 0</div>
+  </div>
+
+  <div id="waveBanner">WAVE 1</div>
+
+  <div id="joy" class="control">
+    <div id="base"><div id="knob"></div></div>
+    <span class="control-label">MOVE</span>
+  </div>
+
+  <button id="s1" class="skill">
+    <span class="skill-name">SKILL 1</span>
+    <span class="skill-key">Q</span>
+    <div class="cd" id="cd1"></div>
+  </button>
+
+  <button id="s2" class="skill">
+    <span class="skill-name">SKILL 2</span>
+    <span class="skill-key">E</span>
+    <div class="cd" id="cd2"></div>
+  </button>
+
+  <div id="damageFlash"></div>
+  <div id="levelToast"></div>
+</div>
+
+<div id="pauseMenu" class="overlay">
+  <div class="panel pause-panel">
+    <div class="panel-icon">Ⅱ</div>
+    <h2>GAME PAUSED</h2>
+    <p>Take a breath, survivor.</p>
+    <button id="resumeBtn" class="primary-btn">▶ RESUME</button>
+    <button id="restartBtn" class="danger-btn">↻ RESTART</button>
+  </div>
+</div>
+
+<div id="select" class="screen">
+  <div class="menu-glow"></div>
+  <div class="title-wrap">
+    <div class="eyebrow">SURVIVE • GROW • CONQUER</div>
+    <h1>⚔ DUNGEON <span>SURVIVOR</span></h1>
+    <div id="selectCoins">🪙 Coins: 0</div>
+  </div>
+
+  <div class="character-grid">
+    <button class="character-card warrior-card" id="wBtn">
+      <div class="char-icon">⚔</div>
+      <div class="char-name">WARRIOR</div>
+      <div class="desc">High HP • SLASH • SHIELD</div>
+      <div class="card-bottom"><span>MELEE</span><span>★</span></div>
+    </button>
+
+    <button class="character-card mage-card" id="mBtn">
+      <div class="char-icon">✦</div>
+      <div class="char-name">MAGE</div>
+      <div class="desc">Fast • FIREBALL • FIRE RING</div>
+      <div class="lock" id="mLock">🔒 150 COINS</div>
+      <div class="card-bottom"><span>RANGED</span><span>✦</span></div>
+    </button>
+
+    <button class="character-card necro-card" id="nBtn">
+      <div class="char-icon">☠</div>
+      <div class="char-name">NECROMANCER</div>
+      <div class="desc">Souls • SUMMON • EXPLODE</div>
+      <div class="lock" id="nLock">🔒 210 COINS</div>
+      <div class="card-bottom"><span>SUMMONER</span><span>☠</span></div>
+    </button>
+  </div>
+
+  <button id="startBtn" class="start-btn">▶ START RUN</button>
+
+  <div class="upgrade-container">
+    <div class="upgrade-title">⚡ CHARACTER UPGRADES <span>MAX LV 30</span></div>
+    <div class="upgrade-buttons">
+      <button class="upg-btn upg-hp" data-stat="hp">❤ HP</button>
+      <button class="upg-btn upg-str" data-stat="str">⚔ STR</button>
+      <button class="upg-btn upg-ls" data-stat="ls">♨ LIFE STEAL</button>
+    </div>
+    <div id="upgradeInfo">Select a character first</div>
+  </div>
+</div>
+
+<div id="over" class="overlay">
+  <div class="panel death-panel">
+    <div class="death-icon">☠</div>
+    <div class="eyebrow">THE DUNGEON CLAIMED YOU</div>
+    <h1>RUN OVER</h1>
+    <div class="result-grid">
+      <div><span>SCORE</span><b id="fScore">0</b></div>
+      <div><span>SURVIVED</span><b id="fTime">0:00</b></div>
+      <div><span>WAVE</span><b id="fWave">1</b></div>
+      <div><span>KILLS</span><b id="fKills">0</b></div>
+    </div>
+    <button id="playAgainBtn" class="primary-btn">↻ PLAY AGAIN</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
