@@ -168,3 +168,74 @@ button{font:inherit}
 @media(min-width:700px){
   .character-grid{max-width:620px}.start-btn{max-width:620px}.upgrade-container{max-width:620px}
 }
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    touch-action: none;
+    overscroll-behavior: none;
+}
+
+#game {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    touch-action: none;
+}
+
+#ui {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100dvh;
+
+    pointer-events: auto;
+    touch-action: none;
+
+    padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: border-box;
+}
+
+/* JOYSTICK */
+.control {
+    position: fixed;
+
+    left: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+
+    width: 112px;
+    height: 112px;
+
+    pointer-events: auto;
+    touch-action: none;
+
+    z-index: 100;
+}
+
+/* SKILL BUTTONS */
+.skill-container {
+    position: fixed;
+
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+
+    pointer-events: auto;
+    touch-action: none;
+
+    z-index: 100;
+}
+
+/* Prevent buttons from being dragged/selected */
+button {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
